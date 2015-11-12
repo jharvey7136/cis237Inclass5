@@ -80,6 +80,24 @@
     <Compile Include="BusinessEntityContact.cs">
       <DependentUpon>BikeDBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Car.cs">
+      <DependentUpon>CarsDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarsDBContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarsDBContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarsDBContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarsDBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarsDBContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarsDBContext.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ContactType.cs">
       <DependentUpon>BikeDBContext.tt</DependentUpon>
     </Compile>
@@ -125,6 +143,23 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BikeDBContext.edmx</DependentUpon>
       <LastGenOutput>BikeDBContext.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="CarsDBContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarsDBContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CarsDBContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarsDBContext.edmx</DependentUpon>
+      <LastGenOutput>CarsDBContext.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CarsDBContext.edmx.diagram">
+      <DependentUpon>CarsDBContext.edmx</DependentUpon>
+    </None>
+    <None Include="CarsDBContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarsDBContext.edmx</DependentUpon>
+      <LastGenOutput>CarsDBContext.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
