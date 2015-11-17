@@ -14,7 +14,7 @@ namespace cis237inclass5
 
 
             //Gets access to the collection of tables we can interact with.
-            CarsJHarveyEntities carsJHarveyEntities = new CarsJHarveyEntities();
+            CarsJHarveyEntities1 carsJHarveyEntities = new CarsJHarveyEntities1();
             //***************************************************************************//
             //Loop through all of the cars in the table called Cars.
             foreach (Car car in carsJHarveyEntities.Cars)
@@ -41,12 +41,12 @@ namespace cis237inclass5
             //***************************************************************************//
             //Find a car based on the primary Id
             //NOTE: This currently doesnt work because there are no primary Ids set on the tables.
-            //Car foundCar = carsJHarveyEntities.Cars.Find("V0LCD1814");
+            Car foundCar = carsJHarveyEntities.Cars.Find("V0LCD1814");
 
             //Print that shit out.
             Console.WriteLine();
             Console.WriteLine();
-            //Console.WriteLine(foundCar.id + " " + foundCar.make + " " + foundCar.model);
+            Console.WriteLine(foundCar.id + " " + foundCar.make + " " + foundCar.model);
             //***************************************************************************//
 
 
@@ -66,10 +66,10 @@ namespace cis237inclass5
             newCarToAdd.type = "Car";
 
             //Add new car to the Cars table.
-            //carsJHarveyEntities.Cars.Add(newCarToAdd);
+            carsJHarveyEntities.Cars.Add(newCarToAdd);
 
             //This method will save the changes to the database.
-            //carsJHarveyEntities.SaveChanges();
+            carsJHarveyEntities.SaveChanges();
             //***************************************************************************//
 
 
@@ -85,9 +85,34 @@ namespace cis237inclass5
 
             //Save changes to the database.
             carsJHarveyEntities.SaveChanges();
-            //***************************************************************************//
+            
 
+            //*******************************************************************************
+            //How to do a delete
+            //*******************************************************************************
 
+            //Get a car out of the database that we would like to update
+            Car carToFindForDelete = carsJHarveyEntities.Cars.Find("88888");
+
+            //Remove the Car from the Cars table
+            carsJHarveyEntities.Cars.Remove(carToFindForDelete);
+
+            //Save the changes to the database
+            carsJHarveyEntities.SaveChanges();
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Deleted the added car. Looking to see if it is still in the DB");
+
+            try
+            {
+                carToFindForDelete = carsJHarveyEntities.Cars.Find("88888");
+                Console.WriteLine(carToFindForDelete.id + " " + carToFindForDelete.make + " " + carToFindForDelete.model);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The model you are looking for does not exist");
+            }
 
 
 
